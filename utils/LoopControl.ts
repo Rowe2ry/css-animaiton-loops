@@ -19,29 +19,29 @@ function loopManyByTargetClass (animationTime : number, delayBetween : number, t
     setTimeout(()=>loopManyByTargetClass(delayBetween,animationTime,targetClass,animationClass),cycleTime);
 }
 
-function loopOneNTimesByTargetClass (iterations : number, animationTime : number, delayBetween : number, targetClass : string, animationClass: string): void {
+function loopOneNTimesByTargetClass (animationTime : number, delayBetween : number, targetClass : string, animationClass: string, iterations : number): void {
     let i = iterations;
     if(i > 0) {
         const el = document.querySelector(`.${targetClass}`);
         var cycleTime : number = animationTime;
         el?.classList.toggle(animationClass);
         --i;
-        setTimeout(()=>loopOneNTimesByTargetClass(i,delayBetween,animationTime,targetClass,animationClass),cycleTime);
+        setTimeout(()=>loopOneNTimesByTargetClass(delayBetween,animationTime,targetClass,animationClass, i),cycleTime);
     } 
 }
 
-function loopOneNTimesByTargetId (iterations : number, animationTime : number, delayBetween : number, targetId : string, animationClass: string): void {
+function loopOneNTimesByTargetId (animationTime : number, delayBetween : number, targetId : string, animationClass: string, iterations : number): void {
     let i = iterations;
     if(i > 0) {
         const el = document.querySelector(`.${targetId}`);
         var cycleTime : number = animationTime;
         el?.classList.toggle(animationClass);
         --i;
-        setTimeout(()=>loopOneNTimesByTargetId(i,delayBetween,animationTime,targetId,animationClass),cycleTime);
+        setTimeout(()=>loopOneNTimesByTargetId(delayBetween,animationTime,targetId,animationClass, i),cycleTime);
     }
 }
 
-function loopManyNtimesByTargetClass (iterations : number, animationTime : number, delayBetween : number, targetClass : string, animationClass: string): void {
+function loopManyNtimesByTargetClass (animationTime : number, delayBetween : number, targetClass : string, animationClass: string, iterations : number): void {
     let i = iterations;
     if(i > 0)
     {
@@ -49,7 +49,7 @@ function loopManyNtimesByTargetClass (iterations : number, animationTime : numbe
         var cycleTime : number = animationTime;
         elList.forEach(el => el?.classList.toggle(animationClass));
         --i;
-        setTimeout(()=>loopManyNtimesByTargetClass(i,delayBetween,animationTime,targetClass,animationClass),cycleTime);
+        setTimeout(()=>loopManyNtimesByTargetClass(delayBetween,animationTime,targetClass,animationClass, i),cycleTime);
     }
 }
 

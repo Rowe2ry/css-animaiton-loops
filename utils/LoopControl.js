@@ -17,34 +17,34 @@ function loopManyByTargetClass(animationTime, delayBetween, targetClass, animati
     elList.forEach(el => el?.classList.toggle(animationClass));
     setTimeout(() => loopManyByTargetClass(delayBetween, animationTime, targetClass, animationClass), cycleTime);
 }
-function loopOneNTimesByTargetClass(iterations, animationTime, delayBetween, targetClass, animationClass) {
+function loopOneNTimesByTargetClass(animationTime, delayBetween, targetClass, animationClass, iterations) {
     let i = iterations;
     if (i > 0) {
         const el = document.querySelector(`.${targetClass}`);
         var cycleTime = animationTime;
         el?.classList.toggle(animationClass);
         --i;
-        setTimeout(() => loopOneNTimesByTargetClass(i, delayBetween, animationTime, targetClass, animationClass), cycleTime);
+        setTimeout(() => loopOneNTimesByTargetClass(delayBetween, animationTime, targetClass, animationClass, i), cycleTime);
     }
 }
-function loopOneNTimesByTargetId(iterations, animationTime, delayBetween, targetId, animationClass) {
+function loopOneNTimesByTargetId(animationTime, delayBetween, targetId, animationClass, iterations) {
     let i = iterations;
     if (i > 0) {
         const el = document.querySelector(`.${targetId}`);
         var cycleTime = animationTime;
         el?.classList.toggle(animationClass);
         --i;
-        setTimeout(() => loopOneNTimesByTargetId(i, delayBetween, animationTime, targetId, animationClass), cycleTime);
+        setTimeout(() => loopOneNTimesByTargetId(delayBetween, animationTime, targetId, animationClass, i), cycleTime);
     }
 }
-function loopManyNtimesByTargetClass(iterations, animationTime, delayBetween, targetClass, animationClass) {
+function loopManyNtimesByTargetClass(animationTime, delayBetween, targetClass, animationClass, iterations) {
     let i = iterations;
     if (i > 0) {
         const elList = document.querySelectorAll(`.${targetClass}`);
         var cycleTime = animationTime;
         elList.forEach(el => el?.classList.toggle(animationClass));
         --i;
-        setTimeout(() => loopManyNtimesByTargetClass(i, delayBetween, animationTime, targetClass, animationClass), cycleTime);
+        setTimeout(() => loopManyNtimesByTargetClass(delayBetween, animationTime, targetClass, animationClass, i), cycleTime);
     }
 }
 module.exports = {
